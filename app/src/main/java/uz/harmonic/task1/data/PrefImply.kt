@@ -7,8 +7,8 @@ import javax.inject.Inject
 
 class PrefImpl @Inject constructor(
     private val prefs: SharedPreferences,
-    private val gson: Gson
 ) : Pref {
+    private val gson = Gson()
     override var user: User?
         get() = gson.fromJson(prefs.getString(Pref.USER, null), User::class.java)
         set(value) {
